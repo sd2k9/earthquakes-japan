@@ -1,0 +1,7 @@
+# User-Crontab
+
+# Runs fetcher for EarthquakesJA: Every 15 Minutes
+# min          hour   day/month month day/week Command
+  07,22,37,52  *       *        *     *     cd $HOME/earthquake_info; ./watcher_report_output.sh  2>&1 >> watcher_report_output-cron.log
+# Simple Logfile cleaner: Every week make one backup
+  45           3   *        *     6      cd $HOME/earthquake_info; bzip2 -c watcher_report_output-cron.log > watcher_report_output-cron.log.bak.bz2 ; rm watcher_report_output-cron.log
